@@ -1,0 +1,4 @@
+body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+.profile-pic { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+input, textarea { width: 100%; margin-bottom: 15px; padding: 10px; display: block; }
+button { padding: 10px 20px; cursor: pointer; background: #2563eb; color: white; border: none; }

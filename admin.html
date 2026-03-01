@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo | Vanderson</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <section id="login-section" class="admin-box">
+            <h2>Acesso Restrito</h2>
+            <p>Digite suas credenciais para editar o site.</p>
+            <input type="text" id="user" placeholder="Usuário (admin)">
+            <input type="password" id="pass" placeholder="Senha (admin123)">
+            <button id="btn-login">Entrar no Painel</button>
+        </section>
+
+        <section id="admin-panel" class="admin-box" style="display: none;">
+            <h2>Configurações da Landing Page</h2>
+            <p>Altere as informações abaixo e clique em salvar.</p>
+
+            <label for="edit-nome">Nome Completo:</label>
+            <input type="text" id="edit-nome">
+
+            <label for="edit-frase">Frase de Impacto:</label>
+            <input type="text" id="edit-frase">
+
+            <label for="edit-sobre">Texto "Sobre Mim":</label>
+            <textarea id="edit-sobre" rows="5"></textarea>
+
+            <label for="edit-foto">Foto de Perfil (Upload):</label>
+            <input type="file" id="edit-foto" accept="image/*">
+
+            <div class="button-group">
+                <button id="btn-save" class="btn-success">Salvar Alterações</button>
+                <button id="btn-logout" class="btn-danger">Sair / Logout</button>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/admin.js"></script>
+</body>
+</html>
