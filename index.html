@@ -1,122 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanderson Alves | Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanderson Alves | Desenvolvedor Front-End</title>
   <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
-    <script>
-const sections = document.querySelectorAll("section");
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-}, { threshold: 0.2 });
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container hero-content">
+      <img src="/profile.jpg" alt="Foto de Vanderson" class="hero-img">
+      
+      <div class="hero-text">
+        <h1>Vanderson Alves</h1>
+        <p>Desenvolvedor Front-End | Criando soluções modernas e funcionais</p>
 
-sections.forEach(section => {
-    section.classList.add("hidden");
-    observer.observe(section);
-});
-</script>
-
-    <main class="container">
-      <section id="hero">
-    <div class="hero-content">
-        <img id="display-foto" src="" alt="Foto de Perfil" class="profile-pic">
-        <div class="hero-text">
-            <div class="social-links">
-    <a href="https://github.com/SEU-USUARIO" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/SEU-USUARIO" target="_blank">LinkedIn</a>
-</div>
-            <h1 id="display-nome">Carregando...</h1>
-            <p id="display-frase" class="tagline"></p>
+        <div class="hero-buttons">
+          <a href="https://github.com/SEU-USUARIO" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/SEU-USUARIO" target="_blank">LinkedIn</a>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-        <section id="about">
-            <h2>Sobre Mim</h2>
-            <p id="display-sobre"></p>
-        </section>
-
-        <section id="services">
-            <h2>O que eu faço</h2>
-            <ul>
-                <li>Otimização de processos com IA</li>
-                <li>Desenvolvimento de soluções eficientes</li>
-                <li>Consultoria tecnológica</li>
-            </ul>
-        </section>
-        <section id="skills">
-    <h2>Habilidades</h2>
-
-    <div class="skill">
-        <p>HTML</p>
-        <div class="skill-bar">
-            <div class="skill-fill" style="width: 85%;"></div>
-        </div>
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <h2>Sobre Mim</h2>
+      <p>
+        Sou desenvolvedor focado em criar landing pages modernas, painéis administrativos
+        e soluções web profissionais. Estou em constante evolução buscando
+        atuar como Desenvolvedor Front-End e Analista de Dados.
+      </p>
     </div>
+  </section>
 
-    <div class="skill">
-        <p>CSS</p>
-        <div class="skill-bar">
-            <div class="skill-fill" style="width: 80%;"></div>
-        </div>
-    </div>
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="container">
+      <h2>Projetos</h2>
 
-    <div class="skill">
-        <p>JavaScript</p>
-        <div class="skill-bar">
-            <div class="skill-fill" style="width: 70%;"></div>
-        </div>
-    </div>
-</section>
-<section id="projects">
-    <h2>Projetos</h2>
-
-    <div class="projects-grid">
+      <div class="projects-grid">
         <div class="project-card">
-            <h3>Landing Page com Painel Admin</h3>
-            <p>Landing page com sistema de login e edição dinâmica via LocalStorage.</p>
-            <div class="project-links">
-                <a href="#" target="_blank">Ver Projeto</a>
-                <a href="#" target="_blank">GitHub</a>
-            </div>
+          <h3>Landing Page com Painel Admin</h3>
+          <p>Landing page com painel administrativo protegido por login.</p>
+          <div class="links">
+            <a href="#" target="_blank">Ver Projeto</a>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
         </div>
 
         <div class="project-card">
-            <h3>Dashboard de Estudos</h3>
-            <p>Painel simples para organização de metas e progresso de aprendizado.</p>
-            <div class="project-links">
-                <a href="#" target="_blank">Ver Projeto</a>
-                <a href="#" target="_blank">GitHub</a>
-            </div>
+          <h3>Dashboard Analítico</h3>
+          <p>Painel com indicadores e visualização de dados.</p>
+          <div class="links">
+            <a href="#" target="_blank">Ver Projeto</a>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
         </div>
+
+      </div>
     </div>
-</section>
-        <footer id="contact">
-            <h2>Contato</h2>
-            <p>Email: vandersonmoura@icloud.com</p>
-            <a href="admin.html" class="admin-link">Acessar Painel</a>
-        </footer>
-    </main>
+  </section>
 
-    <script type="module">
-        // Importamos a função que busca os dados do LocalStorage
-        import { getProjectData } from './js/data.js';
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <h2>Contato</h2>
+      <p>Vamos trabalhar juntos?</p>
 
-        // Executamos a função
-        const dados = getProjectData();
+      <div class="contact-links">
+        <a href="mailto:vandersonmoura@icloud.com">Enviar E-mail</a>
+        <a href="https://linkedin.com/in/SEU-USUARIO" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
 
-        // Injetamos os dados nos elementos HTML através dos IDs
-        document.getElementById('display-nome').innerText = dados.nome;
-        document.getElementById('display-frase').innerText = dados.frase;
-        document.getElementById('display-sobre').innerText = dados.sobre;
-        document.getElementById('display-foto').src = dados.foto;
-    </script>
 </body>
 </html>
