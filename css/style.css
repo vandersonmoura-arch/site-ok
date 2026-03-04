@@ -374,3 +374,101 @@ footer {
     text-align: center;
   }
 }
+/* ===== CARDS DE PROJETO ===== */
+.projeto-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.2);
+}
+
+.projeto-imagem {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.projeto-card:hover .projeto-imagem img {
+    transform: scale(1.1);
+}
+
+.projeto-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(37, 99, 235, 0.95), rgba(37, 99, 235, 0.8));
+    color: white;
+    padding: 1rem;
+    transition: bottom 0.3s ease;
+    text-align: center;
+}
+
+.projeto-card:hover .projeto-overlay {
+    bottom: 0;
+}
+
+.tecnologias {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.projeto-info {
+    padding: 1.5rem;
+}
+
+.projeto-info h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.projeto-info p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.projeto-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-demo, .btn-github {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-demo {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-demo:hover {
+    background: #1d4ed8;
+}
+
+.btn-github {
+    background: #f3f4f6;
+    color: #333;
+}
+
+.btn-github:hover {
+    background: #e5e7eb;
+}
