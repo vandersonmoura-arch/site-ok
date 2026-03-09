@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanderson Alves | Desenvolvedor Web</title>
-  <link rel="stylesheet" crossorigin href="/assets/index-CF9H-1qN.css">
+  <title>Vanderson Alves | Desenvolvedor Web</title>
+  
+  <!-- CSS - Versão fixa sem hash -->
+  <link rel="stylesheet" href="./css/style.css">
+  
+  <!-- Fallback CSS inline caso o arquivo não carregue -->
+  <style>
+    /* CSS mínimo de emergência */
+    body { font-family: system-ui, sans-serif; margin: 0; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .btn-primary { background: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; }
+    img { max-width: 100%; height: auto; }
+  </style>
 </head>
 <body>
   <main>
-    <!-- HERO SECTION (CORRIGIDA) -->
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="container hero-content">
         <div class="hero-text">
@@ -20,7 +31,8 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="assets/mockup.png" alt="Projeto Web" onerror="this.src='https://via.placeholder.com/400x300'">
+          <!-- CORREÇÃO: Caminho absoluto para imagem com fallback confiável -->
+          <img src="/assets/mockup.png" alt="Projeto Web" onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Vanderson+Alves'">
         </div>
       </div>
     </section>
@@ -54,57 +66,67 @@
       </div>
     </section>
 
-    <!-- PROJETOS (AGORA COM 3 CARDS) -->
+    <!-- PROJETOS -->
     <section class="section" id="projetos">
       <div class="container">
         <h2>Projetos</h2>
         <div class="grid projetos-grid">
           <!-- Card 1: Dashboard Financeiro -->
-          <div class="projeto-card" data-categoria="dashboard">
+          <div class="projeto-card">
             <div class="projeto-imagem">
-              <img src="assets/images/projetos/dashboard-financeiro.jpg" alt="Dashboard Financeiro" onerror="this.src='https://via.placeholder.com/400x200/2563eb/ffffff?text=Dashboard+Financeiro'">
+              <img src="/assets/images/projetos/dashboard-financeiro.jpg" alt="Dashboard Financeiro" loading="lazy" onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Dashboard+Financeiro'">
               <div class="projeto-overlay"><span class="tecnologias">React • Node.js • Chart.js</span></div>
             </div>
             <div class="projeto-info">
               <h3>Dashboard Financeiro</h3>
               <p>Painel com indicadores de receita, despesa e lucro mensal em tempo real.</p>
-              <div class="projeto-links">
-                <a href="#" target="_blank" class="btn-demo">🔗 Live Demo</a>
-                <a href="#" target="_blank" class="btn-github">📁 GitHub</a>
-              </div>
+         <div class="projeto-links">
+  <a href="https://dashboard-financeiro-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-demo">🔗 Live Demo</a>
+
+  <a href="https://github.com/vanderson-alves/dashboard-financeiro" target="_blank" rel="noopener noreferrer" class="btn-github">📁 GitHub</a>
+
+  <a href="#contato" class="btn-detalhes">📄 Ver Detalhes</a>
+</div>
             </div>
           </div>
+          
           <!-- Card 2: Landing Page com Painel -->
-          <div class="projeto-card" data-categoria="landing">
+          <div class="projeto-card">
             <div class="projeto-imagem">
-              <img src="assets/images/projetos/landing-painel.jpg" alt="Landing Page com Painel" onerror="this.src='https://via.placeholder.com/400x200/764ba2/ffffff?text=Landing+Page+com+Painel'">
+              <img src="/assets/images/projetos/landing-painel.jpg" alt="Landing Page com Painel" loading="lazy" onerror="this.src='https://placehold.co/600x400/764ba2/white?text=Landing+Page+com+Painel'">
               <div class="projeto-overlay"><span class="tecnologias">React • Firebase • Styled Components</span></div>
             </div>
             <div class="projeto-info">
               <h3>Landing Page com Painel</h3>
               <p>Projeto com sistema de login e edição de conteúdo em tempo real.</p>
               <div class="projeto-links">
-                <a href="#" target="_blank" class="btn-demo">🔗 Live Demo</a>
-                <a href="#" target="_blank" class="btn-github">📁 GitHub</a>
+                <a href="https://landing-painel-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-demo">🔗 Live Demo</a>
+                <a href="https://github.com/vanderson-alves/landing-painel" target="_blank" rel="noopener noreferrer" class="btn-github">📁 GitHub</a>
               </div>
             </div>
           </div>
+          
           <!-- Card 3: Dashboard Analítico -->
-          <div class="projeto-card" data-categoria="dashboard">
+          <div class="projeto-card">
             <div class="projeto-imagem">
-              <img src="assets/images/projetos/dashboard-analitico.jpg" alt="Dashboard Analítico" onerror="this.src='https://via.placeholder.com/400x200/667eea/ffffff?text=Dashboard+Analítico'">
+              <img src="/assets/images/projetos/dashboard-analitico.jpg" alt="Dashboard Analítico" loading="lazy" onerror="this.src='https://placehold.co/600x400/667eea/white?text=Dashboard+Analítico'">
               <div class="projeto-overlay"><span class="tecnologias">Vue.js • D3.js • Express</span></div>
             </div>
             <div class="projeto-info">
               <h3>Dashboard Analítico</h3>
               <p>Painel com métricas de negócio e KPIs personalizáveis.</p>
               <div class="projeto-links">
-                <a href="#" target="_blank" class="btn-demo">🔗 Live Demo</a>
-                <a href="#" target="_blank" class="btn-github">📁 GitHub</a>
+                <a href="https://dashboard-analitico-demo.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-demo">🔗 Live Demo</a>
+                <a href="https://github.com/vanderson-alves/dashboard-analitico" target="_blank" rel="noopener noreferrer" class="btn-github">📁 GitHub</a>
               </div>
             </div>
           </div>
         </div>
+        
+        <!-- AVISO: Links são placeholders - substitua pelos URLs reais -->
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">
+          ⚠️ Links de demonstração são placeholders. Atualize com seus projetos reais.
+        </p>
       </div>
     </section>
 
@@ -114,20 +136,39 @@
         <h2>Vamos trabalhar juntos?</h2>
         <p>Entre em contato para conversarmos sobre seu projeto.</p>
         <div class="contato-buttons">
-          <a href="mailto:vandersonmoura@icloud.com" class="btn-primary">📧 Enviar E-mail</a>
-          <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp">📱 WhatsApp</a>
+          <!-- Email (funcionando) -->
+          <a href="mailto:vandersonmoura@icloud.com?subject=Contato%20via%20Portfólio&body=Olá%20Vanderson,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." class="btn-primary">📧 Enviar E-mail</a>
+          
+          <!-- WhatsApp (CORRIGIDO - substitua o número) -->
+          <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">📱 WhatsApp</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER ADICIONADO -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>&copy; 2024 Vanderson Alves. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <!-- JavaScript (opcional) -->
+ <script src="./js/script.js"></script>
+  <script>
+    // Fallback caso o script não carregue
+    console.log('Portfólio de Vanderson Alves carregado com sucesso!');
+    
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
