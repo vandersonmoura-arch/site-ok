@@ -1,9 +1,75 @@
 <!DOCTYPE html>
-<html>
-<head><title>Teste Dashboard</title></head>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analítico | Vanderson Alves</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
-    <h1>✅ Funcionou!</h1>
-    <p>Se você está vendo isto, o caminho está correto.</p>
-    <a href="/">Voltar ao portfólio</a>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-chart-pie"></i> Dashboard Analítico</h1>
+            <a href="/" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar ao Portfólio</a>
+        </header>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <i class="fas fa-users"></i>
+                <div>
+                    <span class="kpi-label">Total Clientes</span>
+                    <span class="kpi-value">1.247</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                    <span class="kpi-label">Taxa Conversão</span>
+                    <span class="kpi-value">23,8%</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-star"></i>
+                <div>
+                    <span class="kpi-label">NPS</span>
+                    <span class="kpi-value">85</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <span class="kpi-label">Tempo Médio</span>
+                    <span class="kpi-value">4,2min</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="graficos-grid">
+            <div class="grafico-card">
+                <h3>Crescimento de Clientes</h3>
+                <canvas id="graficoLinha"></canvas>
+            </div>
+            <div class="grafico-card">
+                <h3>Distribuição por Segmento</h3>
+                <canvas id="graficoPizza"></canvas>
+            </div>
+            <div class="grafico-card">
+                <h3>Taxa de Conversão</h3>
+                <canvas id="graficoBarras"></canvas>
+            </div>
+            <div class="grafico-card">
+                <h3>Insights Rápidos</h3>
+                <div class="insights">
+                    <p>📈 Crescimento de 15,5% no último trimestre</p>
+                    <p>🎯 Meta de NPS superada em 5 pontos</p>
+                    <p>⚡ Segmento A com maior conversão</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
