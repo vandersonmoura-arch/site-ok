@@ -4,59 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vanderson Alves | Desenvolvedor Web</title>
-  <!-- CORREÇÃO 1: Caminho absoluto para CSS -->
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css">
-  <!-- Fallback se o CSS não carregar -->
-  <style>
-    /* CSS mínimo de fallback */
-    body { font-family: system-ui, sans-serif; margin: 0; line-height: 1.6; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .btn-primary, .btn-outline, .btn-whatsapp { display: inline-block; padding: 12px 24px; text-decoration: none; border-radius: 5px; }
-    .btn-primary { background: #2563eb; color: white; }
-    .btn-whatsapp { background: #25D366; color: white; }
-  </style>
-</head>
-<body>
-
-  <!-- BOTÃO CLARO/ESCURO -->
-<div class="theme-switch-wrapper">
-  <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
-    <span class="sun-icon">☀️</span>
-    <span class="moon-icon">🌙</span>
-  </button>
-</div>
-
-  <main>
-    <!DOCTYPE html>
-
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanderson Alves | Desenvolvedor Web</title>
-
-  <link rel="stylesheet" href="/css/style.css">
-
+  
+  <!-- Fallback CSS -->
   <style>
     body {
       font-family: system-ui, sans-serif;
       margin: 0;
       line-height: 1.6;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
-
     .btn-primary,
     .btn-outline,
     .btn-whatsapp {
@@ -65,196 +33,134 @@
       text-decoration: none;
       border-radius: 5px;
     }
-
     .btn-primary { background: #2563eb; color: white; }
     .btn-whatsapp { background: #25D366; color: white; }
   </style>
-
 </head>
-
 <body>
 
-<main>
-
-<!-- HERO -->
-
-<section class="hero">
-  <div class="container hero-content">
-
-```
-<div class="hero-text">
-  <h1>Desenvolvimento de Sites e Sistemas Profissionais</h1>
-
-  <p class="subtitle">
-    Crio landing pages modernas, dashboards estratégicos
-    e sistemas web personalizados.
-  </p>
-
-  <div class="buttons">
-    <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
-    <a href="#projetos" class="btn-outline">Ver Projetos</a>
-  </div>
-</div>
-
-<div class="hero-image">
-  <img src="Images/mockup.png" alt="Mockup do sistema">
-  alt="Projeto Web"
-  onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Vanderson+Alves'">
-</div>
-```
-
-  </div>
-</section>
-
-<!-- SOBRE -->
-
-<section class="section">
-  <div class="container">
-    <h2>Sobre Mim</h2>
-
-```
-<p>
-  Sou desenvolvedor focado em criação de landing pages,
-  painéis administrativos e dashboards analíticos.
-  Meu objetivo é ajudar empresas a terem presença digital
-  profissional e estratégica.
-</p>
-```
-
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-
-<section class="section bg-light">
-
-  <div class="container">
-
-```
-<h2>Serviços</h2>
-
-<div class="grid">
-
-  <div class="card">
-    <h3>Landing Pages</h3>
-    <p>Páginas modernas e otimizadas para conversão.</p>
+  <!-- BOTÃO CLARO/ESCURO -->
+  <div class="theme-switch-wrapper">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+      <span class="sun-icon">☀️</span>
+      <span class="moon-icon">🌙</span>
+    </button>
   </div>
 
-  <div class="card">
-    <h3>Painéis Administrativos</h3>
-    <p>Sistemas com login para gestão de conteúdo.</p>
-  </div>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Desenvolvimento de Sites e Sistemas Profissionais</h1>
+          <p class="subtitle">Crio landing pages modernas, dashboards estratégicos e sistemas web personalizados.</p>
+          <div class="buttons">
+            <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
+            <a href="#projetos" class="btn-outline">Ver Projetos</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- CORREÇÃO: Linha 100 corrigida -->
+          <img src="assets/mockup.png" 
+               alt="Projeto Web" 
+               onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Vanderson+Alves'">
+        </div>
+      </div>
+    </section>
 
-  <div class="card">
-    <h3>Dashboards</h3>
-    <p>Visualização de dados clara e estratégica.</p>
-  </div>
+    <!-- SOBRE -->
+    <section class="section">
+      <div class="container">
+        <h2>Sobre Mim</h2>
+        <p>Sou desenvolvedor focado em criação de landing pages, painéis administrativos e dashboards analíticos. Meu objetivo é ajudar empresas a terem presença digital profissional e estratégica.</p>
+      </div>
+    </section>
 
-</div>
-```
+    <!-- SERVIÇOS -->
+    <section class="section bg-light">
+      <div class="container">
+        <h2>Serviços</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Landing Pages</h3>
+            <p>Páginas modernas e otimizadas para conversão.</p>
+          </div>
+          <div class="card">
+            <h3>Painéis Administrativos</h3>
+            <p>Sistemas com login para gestão de conteúdo.</p>
+          </div>
+          <div class="card">
+            <h3>Dashboards</h3>
+            <p>Visualização de dados clara e estratégica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <!-- PROJETOS -->
+    <section class="section" id="projetos">
+      <div class="container">
+        <h2>Projetos</h2>
+        <div class="grid projetos-grid">
+          <!-- CARD 1 -->
+          <div class="projeto-card">
+            <div class="projeto-imagem">
+              <img src="assets/images/dashboard-financeiro.png"
+                   alt="Dashboard Financeiro"
+                   loading="lazy"
+                   onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Dashboard+Financeiro'">
+            </div>
+            <div class="projeto-info">
+              <h3>Dashboard Financeiro</h3>
+              <p>Painel com indicadores de receita, despesas e lucro com análise visual de dados.</p>
+              <div class="projeto-links">
+                <a href="#" class="btn-demo">🔗 Ver Demo</a>
+                <a href="#" class="btn-github">📁 GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- CONTATO -->
+    <section class="section bg-light" id="contato">
+      <div class="container">
+        <h2>Vamos trabalhar juntos?</h2>
+        <p>Entre em contato para conversarmos sobre seu projeto.</p>
+        <div class="contato-buttons">
+          <a href="mailto:vandersonmoura@icloud.com" class="btn-primary">📧 Enviar E-mail</a>
+          <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp">📱 WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- PROJETOS -->
+  <footer>
+    <div class="container">
+      <p>© 2024 Vanderson Alves. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
-<section class="section" id="projetos">
-
-<div class="container">
-
-<h2>Projetos</h2>
-
-<div class="grid projetos-grid">
-
-<!-- CARD 1 -->
-
-<div class="projeto-card">
-
-<div class="projeto-imagem">
-
-<img src="assets/images/dashboard-financeiro.png"
-alt="Dashboard Financeiro"
-loading="lazy"
-onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Dashboard+Financeiro'">
-
-</div>
-
-<div class="projeto-info">
-
-<h3>Dashboard Financeiro</h3>
-
-<p>
-Painel com indicadores de receita, despesas e lucro
-com análise visual de dados.
-</p>
-
-<div class="projeto-links">
-
-<a href="#" class="btn-demo">🔗 Ver Demo</a>
-
-<a href="#" class="btn-github">📁 GitHub</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTATO -->
-
-<section class="section bg-light" id="contato">
-
-<div class="container">
-
-<h2>Vamos trabalhar juntos?</h2>
-
-<p>
-Entre em contato para conversarmos sobre seu projeto.
-</p>
-
-<div class="contato-buttons">
-
-<a href="mailto:vandersonmoura@icloud.com" class="btn-primary">
-📧 Enviar E-mail
-</a>
-
-<a href="https://wa.me/5511999999999"
-target="_blank"
-class="btn-whatsapp">
-
-📱 WhatsApp
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-
-<div class="container">
-
-<p>
-© 2024 Vanderson Alves. Todos os direitos reservados.
-</p>
-
-</div>
-
-</footer>
-
-
-<script src="/js/script.js"></script>
-
+  <script src="/js/script.js"></script>
+  <script>
+    // Script do tema claro/escuro
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      
+      // Verificar preferência salva
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+      }
+      
+      // Alternar tema
+      themeToggle.addEventListener('click', function() {
+        body.classList.toggle('light-theme');
+        localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+      });
+    });
+  </script>
 </body>
 </html>
