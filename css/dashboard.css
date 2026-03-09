@@ -1,0 +1,143 @@
+/* dashboard.css */
+.dashboard-financeiro,
+.dashboard-analitico {
+  padding: 2rem;
+  background: var(--dark);
+  min-height: 100vh;
+  color: var(--text-light);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-header h2 {
+  color: var(--primary);
+  margin: 0;
+  text-align: left;
+  border-left: 4px solid var(--primary);
+  padding-left: 1rem;
+}
+
+.dashboard-header select {
+  padding: 0.5rem 1rem;
+  background: var(--light);
+  color: var(--text-light);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.kpi-grid,
+.metricas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card,
+.metrica-card {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  transition: var(--transition);
+}
+
+.kpi-card:hover,
+.metrica-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.kpi-label {
+  display: block;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-value,
+.metrica-valor {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-trend,
+.metrica-trend {
+  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.kpi-trend.positivo,
+.metrica-trend.positivo {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.kpi-trend.negativo,
+.metrica-trend.negativo {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+}
+
+.graficos-grid,
+.analitico-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.grafico-card {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+}
+
+.grafico-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.insights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.insights p {
+  padding: 0.8rem;
+  background: var(--dark);
+  border-radius: 5px;
+  border-left: 3px solid var(--primary);
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .graficos-grid,
+  .analitico-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .kpi-grid,
+  .metricas-grid {
+    grid-template-columns: 1fr;
+  }
+}
