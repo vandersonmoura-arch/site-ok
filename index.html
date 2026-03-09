@@ -19,173 +19,232 @@
 </head>
 <body>
   <main>
-    <!-- HERO SECTION (CORRIGIDA) -->
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Desenvolvimento de Sites e Sistemas Profissionais</h1>
-          <p class="subtitle">Crio landing pages modernas, dashboards estratégicos e sistemas web personalizados.</p>
-          <div class="buttons">
-            <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
-            <a href="#projetos" class="btn-outline">Ver Projetos</a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <!-- CORREÇÃO 2: Imagem com fallback confiável -->
-          <img src="/assets/mockup.png" alt="Projeto Web" onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Vanderson+Alves'">
-        </div>
-      </div>
-    </section>
+    <!DOCTYPE html>
 
-    <!-- SOBRE -->
-    <section class="section">
-      <div class="container">
-        <h2>Sobre Mim</h2>
-        <p>Sou desenvolvedor focado em criação de landing pages, painéis administrativos e dashboards analíticos. Meu objetivo é ajudar empresas a terem presença digital profissional e estratégica.</p>
-      </div>
-    </section>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanderson Alves | Desenvolvedor Web</title>
 
-    <!-- SERVIÇOS -->
-    <section class="section bg-light">
-      <div class="container">
-        <h2>Serviços</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Landing Pages</h3>
-            <p>Páginas modernas e otimizadas para conversão.</p>
-          </div>
-          <div class="card">
-            <h3>Painéis Administrativos</h3>
-            <p>Sistemas com login para gestão de conteúdo.</p>
-          </div>
-          <div class="card">
-            <h3>Dashboards</h3>
-            <p>Visualização de dados clara e estratégica.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <link rel="stylesheet" href="/css/style.css">
 
-    <!-- PROJETOS (COM LINKS REAIS) -->
-    <section class="section" id="projetos">
-      <div class="container">
-        <h2>Projetos</h2>
-        <div class="grid projetos-grid">
-          <!-- Card 1: Dashboard Financeiro -->
-          <div class="projeto-card" data-categoria="dashboard">
-            <div class="projeto-imagem">
-              <img src="/assets/images/projetos/dashboard-financeiro.jpg" alt="Dashboard Financeiro" onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Dashboard+Financeiro'">
-              <div class="projeto-overlay"><span class="tecnologias">React • Node.js • Chart.js</span></div>
-            </div>
-            <div class="projeto-info">
-              <h3>Dashboard Financeiro</h3>
-              <p>Painel com indicadores de receita, despesa e lucro mensal em tempo real.</p>
-              <div class="projeto-links">
-                <!-- CORREÇÃO 3: Links reais para demonstração -->
-                <a href="https://dashboard-financeiro-demo.vercel.app" target="_blank" class="btn-demo" rel="noopener">🔗 Live Demo</a>
-                <a href="https://github.com/vanderson-alves/dashboard-financeiro" target="_blank" class="btn-github" rel="noopener">📁 GitHub</a>
-              </div>
-            </div>
-          </div>
-          <!-- Card 2: Landing Page com Painel -->
-          <div class="projeto-card" data-categoria="landing">
-            <div class="projeto-imagem">
-              <img src="/assets/images/projetos/landing-painel.jpg" alt="Landing Page com Painel" onerror="this.src='https://placehold.co/600x400/764ba2/white?text=Landing+Page+com+Painel'">
-              <div class="projeto-overlay"><span class="tecnologias">React • Firebase • Styled Components</span></div>
-            </div>
-            <div class="projeto-info">
-              <h3>Landing Page com Painel</h3>
-              <p>Projeto com sistema de login e edição de conteúdo em tempo real.</p>
-              <div class="projeto-links">
-                <a href="https://landing-painel-demo.vercel.app" target="_blank" class="btn-demo" rel="noopener">🔗 Live Demo</a>
-                <a href="https://github.com/vanderson-alves/landing-painel" target="_blank" class="btn-github" rel="noopener">📁 GitHub</a>
-              </div>
-            </div>
-          </div>
-          <!-- Card 3: Dashboard Analítico -->
-          <div class="projeto-card" data-categoria="dashboard">
-            <div class="projeto-imagem">
-              <img src="/assets/images/projetos/dashboard-analitico.jpg" alt="Dashboard Analítico" onerror="this.src='https://placehold.co/600x400/667eea/white?text=Dashboard+Analítico'">
-              <div class="projeto-overlay"><span class="tecnologias">Vue.js • D3.js • Express</span></div>
-            </div>
-            <div class="projeto-info">
-              <h3>Dashboard Analítico</h3>
-              <p>Painel com métricas de negócio e KPIs personalizáveis.</p>
-              <div class="projeto-links">
-                <a href="https://dashboard-analitico-demo.vercel.app" target="_blank" class="btn-demo" rel="noopener">🔗 Live Demo</a>
-                <a href="https://github.com/vanderson-alves/dashboard-analitico" target="_blank" class="btn-github" rel="noopener">📁 GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+    }
 
-    <!-- CONTATO (CORRIGIDO) -->
-    <section class="section bg-light" id="contato">
-      <div class="container">
-        <h2>Vamos trabalhar juntos?</h2>
-        <p>Entre em contato para conversarmos sobre seu projeto.</p>
-        <div class="contato-buttons">
-          <!-- CORREÇÃO 4: Email real -->
-          <a href="mailto:vandersonmoura@icloud.com" class="btn-primary">📧 Enviar E-mail</a>
-          <!-- CORREÇÃO 5: WhatsApp com número real (substitua pelo seu) -->
-          <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" class="btn-whatsapp" rel="noopener">📱 WhatsApp</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 Vanderson Alves. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
 
-  <!-- CORREÇÃO 6: Script com fallback -->
-  <script src="/js/script.js"></script>
-  <script>
-    // Fallback caso o script externo não carregue
-    console.log('Site de Vanderson Alves - Portfólio');
-  </script>
-</body>
-</html>
-<!-- Card 4: Dashboard Financeiro -->
-<div class="projeto-card">
-  <div class="projeto-imagem">
+    .btn-primary,
+    .btn-outline,
+    .btn-whatsapp {
+      display: inline-block;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
 
-   <img src="assets/images/dashboard-financeiro.png"
-alt="Dashboard Financeiro"
-loading="lazy">
-    onerror="this.src='https://placehold.co/600x400/0ea5e9/white?text=Dashboard+Financeiro'">
+    .btn-primary { background: #2563eb; color: white; }
+    .btn-whatsapp { background: #25D366; color: white; }
+  </style>
 
-    <div class="projeto-overlay">
-      <span class="tecnologias">Power BI • Excel • Análise de Dados</span>
-    </div>
+</head>
 
-  </div>
+<body>
 
-  <div class="projeto-info">
+<main>
 
-    <h3>Dashboard Financeiro</h3>
+<!-- HERO -->
 
-    <p>
-      Dashboard desenvolvido para análise financeira com indicadores
-      de faturamento, despesas e desempenho mensal.
-    </p>
+<section class="hero">
+  <div class="container hero-content">
 
-    <div class="projeto-links">
+```
+<div class="hero-text">
+  <h1>Desenvolvimento de Sites e Sistemas Profissionais</h1>
 
-      <a href="#" class="btn-demo">
-      📊 Ver Dashboard
-      </a>
+  <p class="subtitle">
+    Crio landing pages modernas, dashboards estratégicos
+    e sistemas web personalizados.
+  </p>
 
-      <a href="#" class="btn-github">
-      📁 Ver Projeto
-      </a>
-
-    </div>
-
+  <div class="buttons">
+    <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
+    <a href="#projetos" class="btn-outline">Ver Projetos</a>
   </div>
 </div>
+
+<div class="hero-image">
+  <img src="/assets/mockup.png"
+  alt="Projeto Web"
+  onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Vanderson+Alves'">
+</div>
+```
+
+  </div>
+</section>
+
+<!-- SOBRE -->
+
+<section class="section">
+  <div class="container">
+    <h2>Sobre Mim</h2>
+
+```
+<p>
+  Sou desenvolvedor focado em criação de landing pages,
+  painéis administrativos e dashboards analíticos.
+  Meu objetivo é ajudar empresas a terem presença digital
+  profissional e estratégica.
+</p>
+```
+
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+
+<section class="section bg-light">
+
+  <div class="container">
+
+```
+<h2>Serviços</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Landing Pages</h3>
+    <p>Páginas modernas e otimizadas para conversão.</p>
+  </div>
+
+  <div class="card">
+    <h3>Painéis Administrativos</h3>
+    <p>Sistemas com login para gestão de conteúdo.</p>
+  </div>
+
+  <div class="card">
+    <h3>Dashboards</h3>
+    <p>Visualização de dados clara e estratégica.</p>
+  </div>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- PROJETOS -->
+
+<section class="section" id="projetos">
+
+<div class="container">
+
+<h2>Projetos</h2>
+
+<div class="grid projetos-grid">
+
+<!-- CARD 1 -->
+
+<div class="projeto-card">
+
+<div class="projeto-imagem">
+
+<img src="assets/images/dashboard-financeiro.png"
+alt="Dashboard Financeiro"
+loading="lazy"
+onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Dashboard+Financeiro'">
+
+</div>
+
+<div class="projeto-info">
+
+<h3>Dashboard Financeiro</h3>
+
+<p>
+Painel com indicadores de receita, despesas e lucro
+com análise visual de dados.
+</p>
+
+<div class="projeto-links">
+
+<a href="#" class="btn-demo">🔗 Ver Demo</a>
+
+<a href="#" class="btn-github">📁 GitHub</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section class="section bg-light" id="contato">
+
+<div class="container">
+
+<h2>Vamos trabalhar juntos?</h2>
+
+<p>
+Entre em contato para conversarmos sobre seu projeto.
+</p>
+
+<div class="contato-buttons">
+
+<a href="mailto:vandersonmoura@icloud.com" class="btn-primary">
+📧 Enviar E-mail
+</a>
+
+<a href="https://wa.me/5511999999999"
+target="_blank"
+class="btn-whatsapp">
+
+📱 WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+<p>
+© 2024 Vanderson Alves. Todos os direitos reservados.
+</p>
+
+</div>
+
+</footer>
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
