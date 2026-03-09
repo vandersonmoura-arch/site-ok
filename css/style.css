@@ -436,3 +436,148 @@ footer p {
 .btn-detalhes:hover {
   background: #059669;
 }
+.projeto-card{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.projeto-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+.projeto-imagem{
+  overflow:hidden;
+}
+
+.projeto-imagem img{
+  width:100%;
+  display:block;
+  transition:transform .4s ease;
+}
+
+.projeto-card:hover img{
+  transform:scale(1.05);
+}
+.btn-demo{
+  background:#2563eb;
+  color:white;
+  padding:8px 14px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:14px;
+  margin-right:8px;
+}
+
+.btn-github{
+  background:#111;
+  color:white;
+  padding:8px 14px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:14px;
+}
+.projetos-grid{
+  margin-top:40px;
+}
+/* ===== BOTÃO CLARO/ESCURO ===== */
+.theme-switch-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle {
+  background: var(--primary);
+  border: none;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle span {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Esconder ícone dependendo do tema */
+body.light-theme .sun-icon,
+body:not(.light-theme) .moon-icon {
+  display: none;
+}
+
+body.light-theme .moon-icon,
+body:not(.light-theme) .sun-icon {
+  display: inline;
+}
+
+/* ===== VARIÁVEIS DO TEMA CLARO ===== */
+body.light-theme {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #60a5fa;
+  --secondary: #764ba2;
+  --dark: #ffffff;
+  --dark-light: #f3f4f6;
+  --light: #1e293b;
+  --white: #333333;
+  --text-dark: #f8f9fa;
+  --text-light: #e2e8f0;
+  --text-gray: #4a5568;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 15px rgba(37, 99, 235, 0.2);
+  background: linear-gradient(135deg, #f8f9fa, #e2e8f0);
+  color: #333333;
+}
+
+/* Ajustes específicos para o tema claro */
+body.light-theme .bg-light {
+  background: #e2e8f0;
+}
+
+body.light-theme .card,
+body.light-theme .projeto-card {
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme h2 {
+  color: #333333;
+}
+
+body.light-theme .projeto-info h3 {
+  color: #333333;
+}
+
+body.light-theme .projeto-info p {
+  color: #4a5568;
+}
+
+body.light-theme footer {
+  background: #e2e8f0;
+  color: #333333;
+}
+
+/* Manter hero com cores fortes independente do tema */
+body.light-theme .hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+}
+
+body.light-theme .hero h1,
+body.light-theme .hero p {
+  color: white;
+}
