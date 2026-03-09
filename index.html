@@ -8,33 +8,13 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css">
   
-  <!-- Fallback CSS -->
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .btn-primary,
-    .btn-outline,
-    .btn-whatsapp {
-      display: inline-block;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .btn-primary { background: #2563eb; color: white; }
-    .btn-whatsapp { background: #25D366; color: white; }
+    /* CSS mínimo de fallback */
+    body { font-family: system-ui, sans-serif; margin: 0; line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   </style>
 </head>
 <body>
@@ -48,74 +28,158 @@
   </div>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION MELHORADA -->
     <section class="hero">
       <div class="container hero-content">
         <div class="hero-text">
-          <h1>Desenvolvimento de Sites e Sistemas Profissionais</h1>
+          <h1 class="animate-text">Desenvolvimento de Sites e Sistemas Profissionais</h1>
           <p class="subtitle">Crio landing pages modernas, dashboards estratégicos e sistemas web personalizados.</p>
           <div class="buttons">
-  <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
-  <a href="#projeto
-          
+            <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
+            <a href="#projetos" class="btn-outline">Ver Projetos</a>
+          </div>
         </div>
         <div class="hero-image">
-          <!-- CORREÇÃO: Linha 100 corrigida -->
-      <div class="hero-image">
-  <img src="assets/mockup.png" alt="Projeto Web">
-</div>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="section">
-      <div class="container">
-        <h2>Sobre Mim</h2>
-        <p>Sou desenvolvedor focado em criação de landing pages, painéis administrativos e dashboards analíticos. Meu objetivo é ajudar empresas a terem presença digital profissional e estratégica.</p>
+          <img src="assets/mockup.png" 
+               alt="Mockup de projeto web" 
+               onerror="this.src='https://placehold.co/600x400/FBBF24/0A0A0A?text=Vanderson+Alves'">
+        </div>
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
+    <!-- SOBRE COM ÍCONES -->
+    <section class="section">
+      <div class="container">
+        <h2>Sobre Mim</h2>
+        <div class="sobre-content">
+          <div class="sobre-texto">
+            <p>Sou desenvolvedor focado em criação de landing pages, painéis administrativos e dashboards analíticos. Meu objetivo é ajudar empresas a terem presença digital profissional e estratégica.</p>
+          </div>
+          <div class="sobre-stats">
+            <div class="stat-item">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Projetos entregues</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Clientes satisfeitos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS COM ÍCONES -->
     <section class="section bg-light">
       <div class="container">
         <h2>Serviços</h2>
         <div class="grid">
           <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
             <h3>Landing Pages</h3>
-            <p>Páginas modernas e otimizadas para conversão.</p>
+            <p>Páginas modernas e otimizadas para conversão, com design responsivo e foco em resultados.</p>
           </div>
           <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
             <h3>Painéis Administrativos</h3>
-            <p>Sistemas com login para gestão de conteúdo.</p>
+            <p>Sistemas completos com login, gestão de conteúdo e relatórios personalizados.</p>
           </div>
           <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
             <h3>Dashboards</h3>
-            <p>Visualização de dados clara e estratégica.</p>
+            <p>Visualização de dados clara e estratégica com gráficos interativos e KPIs em tempo real.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJETOS -->
+    <!-- PROJETOS COM 3 CARDS -->
     <section class="section" id="projetos">
       <div class="container">
         <h2>Projetos</h2>
         <div class="grid projetos-grid">
-          <!-- CARD 1 -->
+          
+          <!-- Card 1: Dashboard Financeiro -->
           <div class="projeto-card">
             <div class="projeto-imagem">
-              <img src="assets/images/dashboard-financeiro.png"
+              <img src="assets/images/dashboard-financeiro.jpg"
                    alt="Dashboard Financeiro"
                    loading="lazy"
-                   onerror="this.src='https://placehold.co/600x400/2563eb/white?text=Dashboard+Financeiro'">
+                   onerror="this.src='https://placehold.co/600x400/FBBF24/0A0A0A?text=Dashboard+Financeiro'">
+              <div class="projeto-overlay">
+                <span class="tecnologias">React • Node.js • Chart.js</span>
+              </div>
             </div>
             <div class="projeto-info">
               <h3>Dashboard Financeiro</h3>
-              <p>Painel com indicadores de receita, despesas e lucro com análise visual de dados.</p>
-            <div class="projeto-links">
-  <a href="#" class="btn-demo">🔗 Ver Demo</a>
-  <a href="#" class="btn-github">📁 GitHub</a>
-</div>
+              <p>Painel com indicadores de receita, despesas e lucro com gráficos interativos em tempo real.</p>
+              <div class="projeto-links">
+                <a href="https://dashboard-financeiro-demo.vercel.app" target="_blank" rel="noopener" class="btn-demo">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/vanderson-alves/dashboard-financeiro" target="_blank" rel="noopener" class="btn-github">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
 
+          <!-- Card 2: Landing Page com Painel -->
+          <div class="projeto-card">
+            <div class="projeto-imagem">
+              <img src="assets/images/landing-painel.jpg"
+                   alt="Landing Page com Painel"
+                   loading="lazy"
+                   onerror="this.src='https://placehold.co/600x400/FBBF24/0A0A0A?text=Landing+Page+com+Painel'">
+              <div class="projeto-overlay">
+                <span class="tecnologias">React • Firebase • Styled Components</span>
+              </div>
+            </div>
+            <div class="projeto-info">
+              <h3>Landing Page com Painel</h3>
+              <p>Sistema com login e edição de conteúdo em tempo real para gerenciamento de campanhas.</p>
+              <div class="projeto-links">
+                <a href="https://landing-painel-demo.vercel.app" target="_blank" rel="noopener" class="btn-demo">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/vanderson-alves/landing-painel" target="_blank" rel="noopener" class="btn-github">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Dashboard Analítico -->
+          <div class="projeto-card">
+            <div class="projeto-imagem">
+              <img src="assets/images/dashboard-analitico.jpg"
+                   alt="Dashboard Analítico"
+                   loading="lazy"
+                   onerror="this.src='https://placehold.co/600x400/FBBF24/0A0A0A?text=Dashboard+Analítico'">
+              <div class="projeto-overlay">
+                <span class="tecnologias">Vue.js • D3.js • Express</span>
+              </div>
+            </div>
+            <div class="projeto-info">
+              <h3>Dashboard Analítico</h3>
+              <p>Métricas de negócio e KPIs personalizáveis com visualizações avançadas de dados.</p>
+              <div class="projeto-links">
+                <a href="https://dashboard-analitico-demo.vercel.app" target="_blank" rel="noopener" class="btn-demo">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/vanderson-alves/dashboard-analitico" target="_blank" rel="noopener" class="btn-github">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -123,14 +187,38 @@
       </div>
     </section>
 
-    <!-- CONTATO -->
+    <!-- FORMULÁRIO DE CONTATO -->
     <section class="section bg-light" id="contato">
       <div class="container">
         <h2>Vamos trabalhar juntos?</h2>
-        <p>Entre em contato para conversarmos sobre seu projeto.</p>
-        <div class="contato-buttons">
-          <a href="mailto:vandersonmoura@icloud.com" class="btn-primary">📧 Enviar E-mail</a>
-          <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp">📱 WhatsApp</a>
+        <p class="contato-subtitle">Entre em contato para conversarmos sobre seu projeto.</p>
+        
+        <div class="contato-wrapper">
+          <div class="contato-info">
+            <div class="contato-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:vandersonmoura@icloud.com">vandersonmoura@icloud.com</a>
+            </div>
+            <div class="contato-item">
+              <i class="fab fa-whatsapp"></i>
+              <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a>
+            </div>
+          </div>
+
+          <form class="contato-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="form-group">
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+              <i class="fas fa-paper-plane"></i> Enviar Mensagem
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -144,22 +232,38 @@
 
   <script src="/js/script.js"></script>
   <script>
-    // Script do tema claro/escuro
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Tema claro/escuro
     document.addEventListener('DOMContentLoaded', function() {
       const themeToggle = document.getElementById('theme-toggle');
       const body = document.body;
       
-      // Verificar preferência salva
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
         body.classList.add('light-theme');
       }
       
-      // Alternar tema
       themeToggle.addEventListener('click', function() {
         body.classList.toggle('light-theme');
         localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
       });
+    });
+
+    // Formulário (simulação)
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Obrigado pelo contato! Em breve retornarei sua mensagem.');
+      this.reset();
     });
   </script>
 </body>
