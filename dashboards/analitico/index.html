@@ -11,7 +11,66 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Seu CSS e o resto do código permanecem iguais -->
+    <!-- No final do arquivo, antes de </body>, COLE O CÓDIGO DIRETAMENTE: -->
+<script>
+    // Dados simulados
+    const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+    const clientes = [850, 920, 1050, 1150, 1250, 1350, 1420, 1480, 1550, 1620, 1680, 1750];
+    const segmentos = ['Segmento A', 'Segmento B', 'Segmento C', 'Segmento D'];
+    const segmentosDados = [45, 25, 20, 10];
+    const conversao = [18.2, 19.5, 21.0, 22.3, 23.8, 24.5, 25.1, 25.8, 26.2, 26.9, 27.3, 28.0];
+
+    // Criar gráficos quando a página carregar
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gráfico de Linha
+        new Chart(document.getElementById('graficoLinha'), {
+            type: 'line',
+            data: {
+                labels: meses.slice(0, 6),
+                datasets: [{
+                    label: 'Número de Clientes',
+                    data: clientes.slice(0, 6),
+                    borderColor: '#FBBF24',
+                    backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // Gráfico de Pizza
+        new Chart(document.getElementById('graficoPizza'), {
+            type: 'pie',
+            data: {
+                labels: segmentos,
+                datasets: [{
+                    data: segmentosDados,
+                    backgroundColor: ['#FBBF24', '#F59E0B', '#10B981', '#3B82F6']
+                }]
+            }
+        });
+
+        // Gráfico de Barras
+        new Chart(document.getElementById('graficoBarras'), {
+            type: 'bar',
+            data: {
+                labels: meses.slice(0, 6),
+                datasets: [{
+                    label: 'Taxa de Conversão (%)',
+                    data: conversao.slice(0, 6),
+                    backgroundColor: '#FBBF24'
+                }]
+            }
+        });
+    });
+</script>
+
+<!-- REMOVA esta linha: -->
+<!-- <script src="js/script.js"></script> --><!-- Seu CSS e o resto do código permanecem iguais -->
     <!-- ... (todo o resto do seu HTML) ... -->
 </body>
 </html>
