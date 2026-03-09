@@ -1,9 +1,468 @@
 <!DOCTYPE html>
-<html>
-<head><title>Teste Dashboard</title></head>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financeiro | Vanderson Alves</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS direto no HTML para garantir funcionamento */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0A0A0A;
+            color: #FCD34D;
+            line-height: 1.6;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #FBBF24;
+        }
+
+        .dashboard-header h1 {
+            color: #FBBF24;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            color: #FBBF24;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid #FBBF24;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-voltar:hover {
+            background: #FBBF24;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: #1A1A1A;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #FBBF24;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .kpi-card i {
+            font-size: 2.5rem;
+            color: #FBBF24;
+        }
+
+        .kpi-info {
+            flex: 1;
+        }
+
+        .kpi-label {
+            display: block;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .kpi-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FBBF24;
+        }
+
+        .kpi-trend {
+            font-size: 0.9rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.3rem;
+            display: inline-block;
+        }
+
+        .kpi-trend.positivo {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .kpi-trend.negativo {
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+        }
+
+        .graficos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grafico-card {
+            background: #1A1A1A;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #FBBF24;
+        }
+
+        .grafico-card h3 {
+            color: #FBBF24;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-left: 3px solid #FBBF24;
+            padding-left: 0.8rem;
+        }
+
+        .grafico-card canvas {
+            max-height: 300px;
+            width: 100% !important;
+        }
+
+        .tabela-transacoes {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 0.5rem;
+            color: #FBBF24;
+            border-bottom: 2px solid #FBBF24;
+        }
+
+        td {
+            padding: 0.8rem 0.5rem;
+            border-bottom: 1px solid #333;
+            color: #FCD34D;
+        }
+
+        td.positivo {
+            color: #10B981;
+        }
+
+        td.negativo {
+            color: #EF4444;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 1rem;
+            }
+            
+            .graficos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .btn-voltar {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
 <body>
-    <h1>✅ Funcionou!</h1>
-    <p>Se você está vendo isto, o caminho está correto.</p>
-    <a href="/">Voltar ao portfólio</a>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <h1>
+                <i class="fas fa-chart-line"></i> 
+                Dashboard Financeiro
+            </h1>
+            <a href="/" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+            </a>
+        </header>
+
+        <!-- KPIs Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <i class="fas fa-dollar-sign"></i>
+                <div class="kpi-info">
+                    <span class="kpi-label">Receita Total</span>
+                    <span class="kpi-value" id="receita-total">R$ 0</span>
+                    <span class="kpi-trend positivo" id="trend-receita">+12.5%</span>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <i class="fas fa-file-invoice"></i>
+                <div class="kpi-info">
+                    <span class="kpi-label">Despesas</span>
+                    <span class="kpi-value" id="despesas-total">R$ 0</span>
+                    <span class="kpi-trend negativo" id="trend-despesas">-8.3%</span>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <i class="fas fa-wallet"></i>
+                <div class="kpi-info">
+                    <span class="kpi-label">Lucro Líquido</span>
+                    <span class="kpi-value" id="lucro-total">R$ 0</span>
+                    <span class="kpi-trend positivo" id="trend-lucro">+18.2%</span>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <i class="fas fa-percent"></i>
+                <div class="kpi-info">
+                    <span class="kpi-label">Margem</span>
+                    <span class="kpi-value" id="margem">0%</span>
+                    <span class="kpi-trend positivo" id="trend-margem">+5.1%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="graficos-grid">
+            <div class="grafico-card">
+                <h3>📈 Evolução Financeira</h3>
+                <canvas id="graficoLinha"></canvas>
+            </div>
+            
+            <div class="grafico-card">
+                <h3>📊 Receitas vs Despesas</h3>
+                <canvas id="graficoBarras"></canvas>
+            </div>
+            
+            <div class="grafico-card">
+                <h3>🥧 Distribuição de Despesas</h3>
+                <canvas id="graficoPizza"></canvas>
+            </div>
+            
+            <div class="grafico-card">
+                <h3>📋 Últimas Transações</h3>
+                <div class="tabela-transacoes">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-transacoes">
+                            <!-- Preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados simulados
+        const dadosFinanceiros = {
+            meses: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            receitas: [45000, 52000, 48000, 53000, 58000, 62000, 65000, 68000, 72000, 75000, 78000, 82000],
+            despesas: [32000, 35000, 33000, 36000, 38000, 40000, 42000, 43000, 45000, 47000, 49000, 51000],
+            categorias: ['Pessoal', 'Operacional', 'Marketing', 'Tecnologia', 'Outros'],
+            categoriasValores: [35, 25, 20, 15, 5],
+            transacoes: [
+                { data: '15/03/2024', descricao: 'Venda de Software', categoria: 'Receita', valor: 15000 },
+                { data: '14/03/2024', descricao: 'Serviços Cloud', categoria: 'Despesa', valor: -3200 },
+                { data: '14/03/2024', descricao: 'Salários', categoria: 'Despesa', valor: -18000 },
+                { data: '13/03/2024', descricao: 'Consultoria', categoria: 'Receita', valor: 8500 },
+                { data: '13/03/2024', descricao: 'Marketing Digital', categoria: 'Despesa', valor: -2500 }
+            ]
+        };
+
+        // Calcular totais
+        const receitaTotal = dadosFinanceiros.receitas.reduce((a, b) => a + b, 0);
+        const despesasTotal = dadosFinanceiros.despesas.reduce((a, b) => a + b, 0);
+        const lucroTotal = receitaTotal - despesasTotal;
+        const margem = ((lucroTotal / receitaTotal) * 100).toFixed(1);
+
+        // Atualizar cards
+        document.getElementById('receita-total').textContent = `R$ ${receitaTotal.toLocaleString()}`;
+        document.getElementById('despesas-total').textContent = `R$ ${despesasTotal.toLocaleString()}`;
+        document.getElementById('lucro-total').textContent = `R$ ${lucroTotal.toLocaleString()}`;
+        document.getElementById('margem').textContent = `${margem}%`;
+
+        // Gráfico de Linha
+        new Chart(document.getElementById('graficoLinha'), {
+            type: 'line',
+            data: {
+                labels: dadosFinanceiros.meses.slice(0, 6),
+                datasets: [
+                    {
+                        label: 'Receitas',
+                        data: dadosFinanceiros.receitas.slice(0, 6),
+                        borderColor: '#FBBF24',
+                        backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: 'Despesas',
+                        data: dadosFinanceiros.despesas.slice(0, 6),
+                        borderColor: '#EF4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { 
+                            callback: (value) => 'R$ ' + value.toLocaleString(),
+                            color: '#FCD34D'
+                        }
+                    },
+                    x: {
+                        ticks: { color: '#FCD34D' }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Barras
+        new Chart(document.getElementById('graficoBarras'), {
+            type: 'bar',
+            data: {
+                labels: dadosFinanceiros.meses.slice(0, 6),
+                datasets: [
+                    {
+                        label: 'Receitas',
+                        data: dadosFinanceiros.receitas.slice(0, 6),
+                        backgroundColor: '#FBBF24',
+                    },
+                    {
+                        label: 'Despesas',
+                        data: dadosFinanceiros.despesas.slice(0, 6),
+                        backgroundColor: '#EF4444',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { 
+                            callback: (value) => 'R$ ' + value.toLocaleString(),
+                            color: '#FCD34D'
+                        }
+                    },
+                    x: {
+                        ticks: { color: '#FCD34D' }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Pizza
+        new Chart(document.getElementById('graficoPizza'), {
+            type: 'pie',
+            data: {
+                labels: dadosFinanceiros.categorias,
+                datasets: [{
+                    data: dadosFinanceiros.categoriasValores,
+                    backgroundColor: ['#FBBF24', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { 
+                        position: 'bottom',
+                        labels: { color: '#FCD34D' }
+                    },
+                    tooltip: { 
+                        callbacks: { 
+                            label: (ctx) => `${ctx.label}: ${ctx.raw}%` 
+                        } 
+                    }
+                }
+            }
+        });
+
+        // Tabela de Transações
+        const tbody = document.getElementById('tabela-transacoes');
+        dadosFinanceiros.transacoes.forEach(trans => {
+            const row = tbody.insertRow();
+            row.innerHTML = `
+                <td>${trans.data}</td>
+                <td>${trans.descricao}</td>
+                <td>${trans.categoria}</td>
+                <td class="${trans.valor > 0 ? 'positivo' : 'negativo'}">
+                    R$ ${Math.abs(trans.valor).toLocaleString()}
+                </td>
+            `;
+        });
+    </script>
 </body>
 </html>
