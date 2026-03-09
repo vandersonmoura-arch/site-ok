@@ -1,22 +1,63 @@
-# Criar arquivo HTML do Financeiro
-@"
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Financeiro | Vanderson Alves</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="dashboard">
-        <h1>📊 Dashboard Financeiro</h1>
-        <p>Em construção... Em breve, gráficos e análises financeiras!</p>
-        <a href="/">← Voltar ao portfólio</a>
+        <header class="dashboard-header">
+            <h1><i class="fas fa-chart-line"></i> Dashboard Financeiro</h1>
+            <a href="/" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar ao Portfólio</a>
+        </header>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <i class="fas fa-dollar-sign"></i>
+                <div>
+                    <span class="kpi-label">Receita Total</span>
+                    <span class="kpi-value">R$ 318.000</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-file-invoice"></i>
+                <div>
+                    <span class="kpi-label">Despesas</span>
+                    <span class="kpi-value">R$ 214.000</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-wallet"></i>
+                <div>
+                    <span class="kpi-label">Lucro</span>
+                    <span class="kpi-value">R$ 104.000</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-percent"></i>
+                <div>
+                    <span class="kpi-label">Margem</span>
+                    <span class="kpi-value">32.7%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="graficos-grid">
+            <div class="grafico-card">
+                <h3>Evolução Financeira</h3>
+                <canvas id="graficoLinha"></canvas>
+            </div>
+            <div class="grafico-card">
+                <h3>Receitas vs Despesas</h3>
+                <canvas id="graficoBarras"></canvas>
+            </div>
+        </div>
     </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
-"@ | Out-File -FilePath "dashboards\financeiro\index.html" -Encoding UTF8
