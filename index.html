@@ -76,6 +76,29 @@
       box-shadow: 0 8px 25px rgba(251, 191, 36, 0.6);
     }
 
+    /* Cores específicas para cada botão */
+    .floating-btn.github {
+      background: #333333;
+      color: white;
+      border-color: #333333;
+    }
+
+    .floating-btn.github:hover {
+      background: transparent;
+      color: #333333;
+    }
+
+    .floating-btn.linkedin {
+      background: #0077B5;
+      color: white;
+      border-color: #0077B5;
+    }
+
+    .floating-btn.linkedin:hover {
+      background: transparent;
+      color: #0077B5;
+    }
+
     .floating-btn.whatsapp {
       background: #25D366;
       color: var(--dark);
@@ -90,6 +113,7 @@
     .floating-btn.email {
       background: var(--primary);
       color: var(--dark);
+      border-color: var(--primary);
     }
 
     .floating-btn.email:hover {
@@ -408,38 +432,40 @@
   </style>
 </head>
 <body>
-<!-- BOTÕES FLUTUANTES (GITHUB, LINKEDIN, WHATSAPP, EMAIL) -->
-<div class="floating-buttons">
+
+  <!-- BOTÕES FLUTUANTES (GITHUB, LINKEDIN, WHATSAPP, EMAIL) -->
+  <div class="floating-buttons">
     <!-- GitHub (ATUALIZADO) -->
     <a href="https://github.com/vanderson-arco" target="_blank" class="floating-btn github" title="GitHub">
-        <i class="fab fa-github"></i>
+      <i class="fab fa-github"></i>
     </a>
     
-    <!-- LinkedIn -->
+    <!-- LinkedIn (ATUALIZADO) -->
     <a href="https://www.linkedin.com/in/vanderson-alves/" target="_blank" class="floating-btn linkedin" title="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
+      <i class="fab fa-linkedin-in"></i>
     </a>
     
     <!-- WhatsApp -->
     <a href="https://wa.me/5519999815263" target="_blank" class="floating-btn whatsapp" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-whatsapp"></i>
     </a>
     
     <!-- E-mail -->
     <a href="mailto:vandersonmoura@icloud.com" class="floating-btn email" title="E-mail">
-        <i class="fas fa-envelope"></i>
+      <i class="fas fa-envelope"></i>
     </a>
-</div>
+  </div>
 
   <main>
     <!-- HERO SECTION COM FOTO -->
     <section class="hero">
       <div class="hero-content">
-  <div class="profile-container" style="width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; background: linear-gradient(135deg, #00FF00, #FFA500, #FF0000, #0000FF, #0A0A0A); padding: 4px;">
-    <div style="width: 100%; height: 100%; background: #0A0A0A; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-        <span style="font-size: 100px; font-weight: bold; background: linear-gradient(135deg, #00FF00, #FFA500, #FF0000, #0000FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">V</span>
-    </div>
-</div>
+        <!-- NOVA FOTO COLORIDA (OPÇÃO 5) -->
+        <div class="profile-container" style="width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; background: linear-gradient(135deg, #00FF00, #FFA500, #FF0000, #0000FF, #0A0A0A); padding: 4px;">
+          <div style="width: 100%; height: 100%; background: #0A0A0A; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 100px; font-weight: bold; background: linear-gradient(135deg, #00FF00, #FFA500, #FF0000, #0000FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">V</span>
+          </div>
+        </div>
         
         <h1>Vanderson Alves</h1>
         <p class="subtitle">Desenvolvedor Web Full Stack</p>
@@ -505,7 +531,7 @@
       </div>
     </section>
 
-      <!-- PROJETOS -->
+    <!-- PROJETOS -->
     <section class="section" id="projetos">
       <div class="container">
         <h2>Projetos</h2>
@@ -522,7 +548,8 @@
               <p>Painel com indicadores de receita, despesas e lucro.</p>
               <div class="projeto-links">
                 <a href="/dashboards/financeiro/" target="_blank" class="btn-demo">🔗 Live Demo</a>
-                <a href=a href="https://github.com/vanderson-arco/dashboard-financeiro" class="btn-github"></a>
+                <a href="https://github.com/vanderson-arco/dashboard-financeiro" target="_blank" class="btn-github">📁 GitHub</a>
+              </div>
             </div>
           </div>
 
@@ -537,7 +564,7 @@
               <p>Métricas de negócio e KPIs personalizáveis.</p>
               <div class="projeto-links">
                 <a href="/dashboards/analitico/" target="_blank" class="btn-demo">🔗 Live Demo</a>
-            <a href="https://github.com/vanderson-arco/dashboard-analitico" class="btn-github"></a>
+                <a href="https://github.com/vanderson-arco/dashboard-analitico" target="_blank" class="btn-github">📁 GitHub</a>
               </div>
             </div>
           </div>
@@ -639,3 +666,37 @@
         </div>
       </div>
     </section>
+
+    <!-- CONTATO -->
+    <section class="section bg-light" id="contato">
+      <div class="container">
+        <h2>Contato</h2>
+        <div class="contato-info">
+          <div class="contato-item">
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/5519999815263" target="_blank">(11) 99999-9999</a>
+          </div>
+          <div class="contato-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:vandersonmoura@icloud.com">vandersonmoura@icloud.com</a>
+          </div>
+          <div class="contato-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/vanderson-arco" target="_blank">GitHub</a>
+          </div>
+          <div class="contato-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/vanderson-alves-4763521b2" target="_blank" class="floating-btn linkedin" title="LinkedIn"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 Vanderson Alves. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
