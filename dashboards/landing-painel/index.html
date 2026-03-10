@@ -1,15 +1,83 @@
-# Criar um HTML básico para o landing-painel
-@"
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Landing Page com Painel</title>
-    <style>body{background:#0A0A0A;color:#FBBF24;font-family:system-ui;padding:2rem;}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page com Painel | Vanderson Alves</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0A0A0A;
+            color: #FCD34D;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            border-bottom: 2px solid #FBBF24;
+        }
+        .btn-voltar {
+            padding: 0.8rem 1.5rem;
+            color: #FBBF24;
+            text-decoration: none;
+            border: 2px solid #FBBF24;
+            border-radius: 5px;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+        }
+        .login-box {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #FBBF24;
+        }
+        input {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #2D2D2D;
+            border: 1px solid #FBBF24;
+            border-radius: 5px;
+            color: #FCD34D;
+        }
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: #FBBF24;
+            color: #0A0A0A;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>🏠 Landing Page com Painel</h1>
-    <p>Em breve: sistema completo com login e gestão de conteúdo.</p>
-    <a href="/" style="color:#FBBF24;">← Voltar ao portfólio</a>
+    <div class="header">
+        <h1><i class="fas fa-dashboard"></i> Sistema com Painel</h1>
+        <a href="/" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </div>
+
+    <div class="hero">
+        <h2>Área Administrativa</h2>
+        <p>Faça login para gerenciar seu conteúdo</p>
+    </div>
+
+    <div class="login-box">
+        <h3 style="margin-bottom: 1rem;">Acessar Painel</h3>
+        <input type="email" placeholder="E-mail" value="admin@exemplo.com">
+        <input type="password" placeholder="Senha" value="123456">
+        <button onclick="alert('Demonstração - Sistema de login funcional em breve!')">
+            <i class="fas fa-sign-in-alt"></i> Entrar
+        </button>
+    </div>
 </body>
 </html>
-"@ | Out-File -FilePath dashboards\landing-painel\index.html -Encoding UTF8
