@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vendas | Vanderson Alves</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0A0A0A;
+            color: #FCD34D;
+            padding: 2rem;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #FBBF24;
+            padding-bottom: 1rem;
+        }
+        .btn-voltar {
+            padding: 0.8rem 1.5rem;
+            color: #FBBF24;
+            text-decoration: none;
+            border: 2px solid #FBBF24;
+            border-radius: 5px;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .kpi-card {
+            background: #1A1A1A;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #FBBF24;
+            text-align: center;
+        }
+        .kpi-value { font-size: 2rem; color: #FBBF24; font-weight: bold; }
+        canvas { max-height: 300px; margin: 2rem 0; background: #1A1A1A; padding: 1rem; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-chart-line"></i> Dashboard de Vendas</h1>
+        <a href="/" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </div>
+
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <i class="fas fa-dollar-sign fa-2x"></i>
+            <div class="kpi-value">R$ 127K</div>
+            <div>Vendas no mês</div>
+        </div>
+        <div class="kpi-card">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <div class="kpi-value">1.247</div>
+            <div>Pedidos</div>
+        </div>
+        <div class="kpi-card">
+            <i class="fas fa-users fa-2x"></i>
+            <div class="kpi-value">892</div>
+            <div>Clientes</div>
+        </div>
+        <div class="kpi-card">
+            <i class="fas fa-percent fa-2x"></i>
+            <div class="kpi-value">23,8%</div>
+            <div>Conversão</div>
+        </div>
+    </div>
+
+    <canvas id="vendasChart"></canvas>
+
+    <script>
+        new Chart(document.getElementById('vendasChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Vendas (R$)',
+                    data: [85000, 92000, 105000, 115000, 125000, 135000],
+                    borderColor: '#FBBF24',
+                    backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { labels: { color: '#FCD34D' } } }
+            }
+        });
+    </script>
+</body>
+</html>
