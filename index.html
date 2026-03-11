@@ -437,6 +437,150 @@
                 flex-direction: column;
             }
         }
+
+        /* ===== RESPONSIVIDADE OTIMIZADA PARA CELULAR ===== */
+
+/* Para tablets e celulares grandes (até 768px) */
+@media (max-width: 768px) {
+    /* Ajustes gerais */
+    .container {
+        padding: 15px;
+    }
+
+    /* Hero section */
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    /* Botões flutuantes - reposicionar */
+    .floating-buttons {
+        bottom: 15px;
+        right: 15px;
+        gap: 10px;
+    }
+
+    .floating-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    /* Botões de acesso rápido - empilhar */
+    .quick-links {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .quick-link-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    /* Cards dos projetos - ajustar layout */
+    .projeto-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-demo, .btn-github {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    /* Contato - ajustar */
+    .contato-info {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 20px;
+    }
+
+    .contato-item {
+        width: 100%;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .contato-item a {
+        font-size: 1rem;
+    }
+
+    /* Títulos das seções */
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    /* Cards de serviços */
+    .card {
+        padding: 1.5rem;
+        margin: 0 10px;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Rodapé */
+    footer p {
+        font-size: 0.9rem;
+        padding: 0 15px;
+    }
+}
+
+/* Para celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Ajuste fino nos botões flutuantes */
+    .floating-buttons {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .floating-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* Melhorar legibilidade dos cards */
+    .projeto-info p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .projeto-info h3 {
+        font-size: 1.2rem;
+    }
+}
+
     </style>
 </head>
 
