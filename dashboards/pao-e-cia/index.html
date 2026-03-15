@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pão & Cia - Padaria Artesanal</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FBBF24;
+            --primary-dark: #F59E0B;
+            --dark: #0A0A0A;
+            --dark-light: #1A1A1A;
+            --text-light: #FCD34D;
+            --text-gray: #9CA3AF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+
+        /* Header com botão voltar */
+        .header-site {
+            background: var(--dark);
+            padding: 20px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 30px;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .btn-voltar {
+            background: transparent;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-voltar:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        /* Conteúdo principal */
+        .conteudo {
+            margin-top: 100px;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero section */
+        .hero-paes {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--dark), var(--dark-light));
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid var(--primary);
+        }
+
+        .hero-paes h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .hero-paes p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Botão WhatsApp */
+        .btn-whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: transparent;
+            color: #25D366;
+            transform: scale(1.05);
+        }
+
+        .btn-whatsapp i {
+            margin-right: 10px;
+        }
+
+        /* Cardápio */
+        .cardapio {
+            margin: 60px 0;
+        }
+
+        .cardapio h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .grid-cardapio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .item-cardapio {
+            background: var(--dark);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .item-cardapio:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
+        }
+
+        .item-imagem {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .item-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .item-cardapio:hover .item-imagem img {
+            transform: scale(1.1);
+        }
+
+        .item-info {
+            padding: 20px;
+        }
+
+        .item-info h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .item-info p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .item-preco {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Contato */
+        .contato-padaria {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--dark-light);
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            margin-top: 40px;
+        }
+
+        .contato-padaria h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .info-contato {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: var(--dark);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--primary);
+            margin-top: 40px;
+            color: var(--text-gray);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-site {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .logo {
+                flex-direction: column;
+            }
+
+            .hero-paes h2 {
+                font-size: 2rem;
+            }
+
+            .hero-paes p {
+                font-size: 1rem;
+            }
+
+            .btn-whatsapp {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .info-contato {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .info-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-site">
+        <div class="logo">
+            <i class="fas fa-bread-slice"></i>
+            <div>
+                <h1>Pão & Cia</h1>
+                <span>Padaria Artesanal</span>
+            </div>
+        </div>
+        <a href="/" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
+        </a>
+    </header>
+
+    <main class="conteudo">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-paes">
+                <h2>Pão Fresco Todo Dia! 🥖</h2>
+                <p>Padaria artesanal com pães, doces e salgados feitos com ingredientes selecionados e muito amor.</p>
+                <a href="https://wa.me/5519999815263?text=Olá!%20Vi%20o%20site%20da%20Pão%20&%20Cia%20e%20gostaria%20de%20fazer%20um%20pedido" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Fazer Pedido no WhatsApp
+                </a>
+            </section>
+
+            <!-- Cardápio -->
+            <section class="cardapio">
+                <h3>🍞 Cardápio</h3>
+                <div class="grid-cardapio">
+                    <!-- Item 1 -->
+                    <div class="item-cardapio">
+                        <div class="item-imagem">
+                            <img src="https://images.pexels.com/photos/461060/pexels-photo-461060.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pão Francês">
+                        </div>
+                        <div class="item-info">
+                            <h4>Pão Francês</h4>
+                            <p>Fresquinho, crocante por fora e macio por dentro.</p>
+                            <div class="item-preco">R$ 0,80</div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="item-cardapio">
+                        <div class="item-imagem">
+                            <img src="https://images.pexels.com/photos/998235/pexels-photo-998235.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Baguete">
+                        </div>
+                        <div class="item-info">
+                            <h4>Baguete</h4>
+                            <p>Tradicional baguete francesa, crocante e leve.</p>
+                            <div class="item-preco">R$ 5,00</div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="item-cardapio">
+                        <div class="item-imagem">
+                            <img src="https://images.pexels.com/photos/890513/pexels-photo-890513.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pão de Queijo">
+                        </div>
+                        <div class="item-info">
+                            <h4>Pão de Queijo</h4>
+                            <p>Delicioso pão de queijo mineiro.</p>
+                            <div class="item-preco">R$ 2,50</div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="item-cardapio">
+                        <div class="item-imagem">
+                            <img src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Croissant">
+                        </div>
+                        <div class="item-info">
+                            <h4>Croissant</h4>
+                            <p>Folhado e amanteigado, recheado ou puro.</p>
+                            <div class="item-preco">R$ 6,00</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contato -->
+            <section class="contato-padaria">
+                <h3>📍 Onde nos encontrar</h3>
+                <div class="info-contato">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rua das Padarias, 123 - Centro</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Seg-Sáb: 6h às 20h | Dom: 7h às 12h</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(19) 99981-5263</span>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/5519999815263" target="_blank" class="btn-whatsapp" style="margin-top: 20px;">
+                    <i class="fab fa-whatsapp"></i> Peça pelo WhatsApp
+                </a>
+                
+                <p style="margin-top: 30px; color: var(--text-gray);">
+                    <i class="fas fa-check-circle" style="color: var(--primary);"></i> 
+                    Site desenvolvido por Vanderson Alves - Cliente Real
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Pão & Cia - Padaria Artesanal. Todos os direitos reservados.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            <a href="/" style="color: var(--primary); text-decoration: none;">Voltar ao portfólio</a>
+        </p>
+    </footer>
+</body>
+</html>
