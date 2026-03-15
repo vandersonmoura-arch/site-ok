@@ -1,1 +1,99 @@
 code dashboards/imobiliaria/index.html  # Crie uma landing page simples
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot IA | Vanderson Alves</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Estilos adicionais caso o CSS não carregue */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0A0A0A, #1A1A1A);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <!-- Header -->
+        <div class="chatbot-header">
+            <div class="header-left">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Assistente Virtual</h1>
+                    <p>Online • Respondo em poucos segundos</p>
+                </div>
+            </div>
+            <a href="/" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+        </div>
+
+        <!-- Área de mensagens -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Mensagem inicial do bot -->
+            <div class="message bot-message">
+                <div class="avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Olá! Eu sou o assistente virtual do Vanderson. 👋</p>
+                    <p>Posso te ajudar com:</p>
+                    <ul>
+                        <li>✅ Informações sobre serviços</li>
+                        <li>✅ Detalhes dos projetos</li>
+                        <li>✅ Contato e orçamentos</li>
+                        <li>✅ Tecnologias utilizadas</li>
+                    </ul>
+                    <p>Como posso te ajudar hoje?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de input -->
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Digite sua mensagem..." autocomplete="off">
+            <button id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+
+        <!-- Opções rápidas -->
+        <div class="quick-options">
+            <button class="quick-option" data-option="serviços">
+                <i class="fas fa-code"></i> Serviços
+            </button>
+            <button class="quick-option" data-option="projetos">
+                <i class="fas fa-folder"></i> Projetos
+            </button>
+            <button class="quick-option" data-option="contato">
+                <i class="fas fa-phone"></i> Contato
+            </button>
+            <button class="quick-option" data-option="tecnologias">
+                <i class="fas fa-cog"></i> Tecnologias
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
