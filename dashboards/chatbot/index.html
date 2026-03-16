@@ -1,386 +1,289 @@
-<style>
-    /* ===== RESET E ESTILOS BASE ===== */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot IA | Vanderson Alves</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-        --primary: #FBBF24;
-        --primary-dark: #F59E0B;
-        --dark: #0A0A0A;
-        --dark-light: #1A1A1A;
-        --text-light: #FCD34D;
-        --text-gray: #9CA3AF;
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, var(--dark), var(--dark-light));
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        margin: 0;
-    }
-
-    /* Container principal */
-    .chatbot-container {
-        width: 100%;
-        max-width: 900px;
-        height: 80vh;
-        max-height: 700px;
-        background: var(--dark-light);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        border: 1px solid var(--primary);
-        margin: 0 auto;
-        /* Garante que o conteúdo seja visível */
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Header */
-    .chatbot-header {
-        background: var(--dark);
-        padding: 20px 25px;
-        border-bottom: 2px solid var(--primary);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-shrink: 0; /* Não encolhe */
-    }
-
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .header-left i {
-        font-size: 40px;
-        color: var(--primary);
-    }
-
-    .header-left h1 {
-        color: var(--primary);
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-    }
-
-    .header-left p {
-        color: var(--text-gray);
-        font-size: 0.9rem;
-    }
-
-    .header-left p::before {
-        content: "●";
-        color: #10b981;
-        margin-right: 5px;
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-    }
-
-    .btn-voltar {
-        background: transparent;
-        color: var(--primary);
-        text-decoration: none;
-        padding: 8px 15px;
-        border: 1px solid var(--primary);
-        border-radius: 5px;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .btn-voltar:hover {
-        background: var(--primary);
-        color: var(--dark);
-    }
-
-    /* Área de mensagens */
-    .chat-messages {
-        flex: 1 1 auto; /* Cresce e encolhe */
-        overflow-y: auto;
-        padding: 20px 25px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        background: var(--dark-light);
-        min-height: 0; /* Importante para flexbox */
-    }
-
-    /* Scroll personalizado */
-    .chat-messages::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .chat-messages::-webkit-scrollbar-track {
-        background: var(--dark);
-    }
-
-    .chat-messages::-webkit-scrollbar-thumb {
-        background: var(--primary);
-        border-radius: 3px;
-    }
-
-    /* Mensagens */
-    .message {
-        display: flex;
-        gap: 10px;
-        max-width: 80%;
-    }
-
-    .user-message {
-        align-self: flex-end;
-        flex-direction: row-reverse;
-        margin-left: auto;
-    }
-
-    .bot-message {
-        align-self: flex-start;
-        margin-right: auto;
-    }
-
-    .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: var(--primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--dark);
-        font-size: 20px;
-        flex-shrink: 0;
-    }
-
-    .message-content {
-        background: var(--dark);
-        padding: 12px 16px;
-        border-radius: 15px;
-        color: var(--text-light);
-        line-height: 1.5;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .user-message .message-content {
-        background: var(--primary);
-        color: var(--dark);
-        border-radius: 15px 15px 0 15px;
-    }
-
-    .bot-message .message-content {
-        background: var(--dark);
-        border-radius: 15px 15px 15px 0;
-    }
-
-    /* Área de input */
-    .chat-input-area {
-        padding: 20px 25px;
-        background: var(--dark);
-        border-top: 1px solid var(--primary);
-        display: flex;
-        gap: 10px;
-        flex-shrink: 0; /* Não encolhe */
-    }
-
-    .chat-input-area input {
-        flex: 1;
-        padding: 12px 15px;
-        background: var(--dark-light);
-        border: 1px solid var(--primary);
-        border-radius: 8px;
-        color: var(--text-light);
-        font-size: 1rem;
-        outline: none;
-        transition: all 0.3s ease;
-    }
-
-    .chat-input-area input:focus {
-        box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-    }
-
-    .chat-input-area button {
-        width: 45px;
-        height: 45px;
-        background: var(--primary);
-        border: none;
-        border-radius: 8px;
-        color: var(--dark);
-        font-size: 18px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        flex-shrink: 0;
-    }
-
-    .chat-input-area button:hover {
-        background: var(--primary-dark);
-    }
-
-    /* Opções rápidas */
-    .quick-options {
-        padding: 0 25px 20px 25px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        background: var(--dark-light);
-        justify-content: center;
-        flex-shrink: 0; /* Não encolhe */
-    }
-
-    .quick-option {
-        padding: 8px 15px;
-        background: var(--dark);
-        border: 1px solid var(--primary);
-        border-radius: 20px;
-        color: var(--primary);
-        cursor: pointer;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        transition: all 0.3s ease;
-    }
-
-    .quick-option:hover {
-        background: var(--primary);
-        color: var(--dark);
-    }
-
-    /* Indicador de digitação */
-    .typing-indicator {
-        display: flex;
-        gap: 5px;
-        padding: 12px 16px;
-        background: var(--dark);
-        border-radius: 15px 15px 15px 0;
-        width: fit-content;
-    }
-
-    .typing-indicator span {
-        width: 8px;
-        height: 8px;
-        background: var(--primary);
-        border-radius: 50%;
-        animation: typing 1.4s infinite;
-    }
-
-    .typing-indicator span:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .typing-indicator span:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-
-    @keyframes typing {
-        0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
-        30% { transform: translateY(-10px); opacity: 1; }
-    }
-
-    /* ===== VERSÃO PARA CELULAR ===== */
-    @media (max-width: 768px) {
         body {
-            padding: 10px;
-        }
-        
-        .chatbot-container {
-            max-width: 100%;
-            height: 90vh;
-            max-height: none;
-            margin: 0 auto;
-            border-radius: 15px;
-        }
-        
-        .chat-messages {
-            padding: 15px;
-        }
-        
-        .quick-options {
-            padding: 0 15px 15px 15px;
-        }
-        
-        .quick-option {
-            flex: 0 1 auto;
-            min-width: 120px;
+            font-family: Arial, sans-serif;
+            background: #0A0A0A;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            padding: 20px;
         }
-        
-        .message {
-            max-width: 85%;
-        }
-        
-        .user-message {
-            margin-left: auto;
-        }
-        
-        .bot-message {
-            margin-right: auto;
-        }
-    }
 
-    @media (max-width: 480px) {
-        body {
-            padding: 5px;
-        }
-        
-        .chatbot-container {
-            height: 95vh;
+        /* Container principal */
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            background: #1A1A1A;
+            border: 2px solid #FBBF24;
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
-        
-        .chatbot-header {
-            padding: 15px;
+
+        /* Header */
+        .chat-header {
+            background: #0A0A0A;
+            padding: 15px 20px;
+            border-bottom: 2px solid #FBBF24;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
+
         .header-left {
-            gap: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
+
         .header-left i {
             font-size: 30px;
+            color: #FBBF24;
         }
-        
+
         .header-left h1 {
-            font-size: 1.2rem;
+            color: #FBBF24;
+            font-size: 1.3rem;
         }
-        
-        .btn-voltar {
-            padding: 5px 10px;
+
+        .header-left p {
+            color: #9CA3AF;
             font-size: 0.8rem;
         }
-        
-        .quick-options {
-            gap: 8px;
+
+        .btn-voltar {
+            color: #FBBF24;
+            text-decoration: none;
+            border: 1px solid #FBBF24;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
-        
-        .quick-option {
-            min-width: calc(50% - 8px); /* Duas opções por linha */
-            padding: 10px 5px;
+
+        /* Área de mensagens */
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #1A1A1A;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        
+
+        /* Mensagens */
+        .message {
+            display: flex;
+            gap: 10px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            background: #FBBF24;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A0A0A;
+        }
+
+        .message-content {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: #0A0A0A;
+            color: #FCD34D;
+        }
+
+        .user-message .message-content {
+            background: #FBBF24;
+            color: #0A0A0A;
+        }
+
+        /* Input area */
         .chat-input-area {
-            padding: 15px;
+            padding: 15px 20px;
+            background: #0A0A0A;
+            border-top: 1px solid #FBBF24;
+            display: flex;
+            gap: 10px;
         }
-        
+
         .chat-input-area input {
-            padding: 12px;
+            flex: 1;
+            padding: 10px;
+            background: #1A1A1A;
+            border: 1px solid #FBBF24;
+            border-radius: 5px;
+            color: #FCD34D;
         }
-        
+
         .chat-input-area button {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+            background: #FBBF24;
+            border: none;
+            border-radius: 5px;
+            color: #0A0A0A;
+            cursor: pointer;
         }
-    }
-</style>
+
+        /* Opções rápidas */
+        .quick-options {
+            padding: 0 20px 15px 20px;
+            background: #1A1A1A;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .quick-option {
+            padding: 8px 15px;
+            background: #0A0A0A;
+            border: 1px solid #FBBF24;
+            border-radius: 20px;
+            color: #FBBF24;
+            cursor: pointer;
+        }
+
+        /* Celular */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .chat-container {
+                height: 90vh;
+                max-width: 100%;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="header-left">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h1>Assistente Virtual</h1>
+                    <p>Online</p>
+                </div>
+            </div>
+            <a href="/" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+        </div>
+
+        <!-- Mensagens -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    Olá! Como posso ajudar?
+                </div>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+            <button id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+
+        <!-- Opções rápidas -->
+        <div class="quick-options">
+            <button class="quick-option">Serviços</button>
+            <button class="quick-option">Projetos</button>
+            <button class="quick-option">Contato</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript básico para o chat funcionar
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('userInput');
+            const button = document.getElementById('sendButton');
+            const messages = document.getElementById('chatMessages');
+
+            function sendMessage() {
+                const text = input.value.trim();
+                if (text === '') return;
+
+                // Mensagem do usuário
+                const userDiv = document.createElement('div');
+                userDiv.className = 'message user-message';
+                userDiv.innerHTML = `
+                    <div class="message-content">${text}</div>
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                `;
+                messages.appendChild(userDiv);
+                input.value = '';
+
+                // Resposta do bot
+                setTimeout(() => {
+                    const botDiv = document.createElement('div');
+                    botDiv.className = 'message bot-message';
+                    botDiv.innerHTML = `
+                        <div class="avatar"><i class="fas fa-robot"></i></div>
+                        <div class="message-content">Obrigado pela mensagem! Em breve responderei.</div>
+                    `;
+                    messages.appendChild(botDiv);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            button.addEventListener('click', sendMessage);
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            // Opções rápidas
+            document.querySelectorAll('.quick-option').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    input.value = this.textContent;
+                    sendMessage();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
