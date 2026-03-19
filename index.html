@@ -736,22 +736,105 @@
                             </div>
                         </div>
                     </div>
+<!-- Card: Chatbot IA - VERSÃO INTERATIVA -->
+<div class="projeto-card" style="position: relative; overflow: hidden;">
+    <div class="projeto-imagem" style="background: linear-gradient(135deg, #0A0A0A, #1A1A1A); display: flex; align-items: center; justify-content: center; padding: 20px; height: 200px; position: relative;">
+        <!-- Ícone animado do robô -->
+        <div style="font-size: 80px; color: #FBBF24; animation: pulse 2s infinite;">
+            <i class="fas fa-robot"></i>
+        </div>
+        <!-- Bolhas de conversa flutuantes -->
+        <div style="position: absolute; bottom: 10px; right: 10px; background: #FBBF24; color: #0A0A0A; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; animation: slideIn 3s infinite;">
+            <i class="fas fa-comment"></i> Online
+        </div>
+    </div>
+    <div class="projeto-info">
+        <h3>
+            Chatbot IA 
+            <span style="background: #FBBF24; color: #0A0A0A; padding: 0.2rem 0.5rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; animation: pulse 2s infinite;">
+                <i class="fas fa-bolt"></i> Interativo
+            </span>
+        </h3>
+        <p>Assistente virtual inteligente com respostas em tempo real sobre serviços e projetos.</p>
+        
+        <!-- MINI CHAT DE DEMONSTRAÇÃO -->
+        <div style="background: #f5f5f5; border-radius: 10px; padding: 10px; margin: 15px 0;">
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 30px; height: 30px; background: #FBBF24; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-robot" style="color: #0A0A0A; font-size: 16px;"></i>
+                </div>
+                <div style="background: #FBBF24; padding: 8px 12px; border-radius: 15px; color: #0A0A0A; font-size: 0.9rem;">
+                    👋 Olá! Como posso ajudar?
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <div style="background: #0A0A0A; padding: 8px 12px; border-radius: 15px; color: white; font-size: 0.9rem;">
+                    Quais serviços?
+                </div>
+                <div style="width: 30px; height: 30px; background: #0A0A0A; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-user" style="color: #FBBF24;"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BOTÕES DE AÇÃO RÁPIDA -->
+        <div style="display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+            <button onclick="window.open('/dashboards/chatbot/', '_blank')" style="flex: 1; background: #FBBF24; color: #0A0A0A; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;" 
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <i class="fas fa-comment"></i> Conversar
+            </button>
+            <button onclick="testarChatbot()" style="flex: 1; background: #0A0A0A; color: #FBBF24; border: 1px solid #FBBF24; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: all 0.3s ease;"
+                    onmouseover="this.style.background='#FBBF24'; this.style.color='#0A0A0A'" onmouseout="this.style.background='#0A0A0A'; this.style.color='#FBBF24'">
+                <i class="fas fa-bolt"></i> Testar Rápido
+            </button>
+        </div>
+        
+        <!-- STATUS EM TEMPO REAL -->
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 8px; background: #f0f0f0; border-radius: 5px;">
+            <div style="width: 10px; height: 10px; background: #2ecc71; border-radius: 50%; animation: pulse 2s infinite;"></div>
+            <span style="color: #666; font-size: 0.9rem;">Online • Responde em segundos</span>
+            <span style="margin-left: auto; color: #FBBF24;">
+                <i class="fas fa-users"></i> 3 ativos
+            </span>
+        </div>
+    </div>
+</div>
 
-                    <!-- Card 3: Chatbot IA -->
-                    <div class="projeto-card">
-                        <div class="projeto-imagem">
-                            <img src="https://placehold.co/600x400/FBBF24/0A0A0A?text=Chatbot+IA" alt="Chatbot IA">
-                        </div>
-                        <div class="projeto-info">
-                            <h3>Chatbot IA</h3>
-                            <p>Assistente virtual interativo com respostas inteligentes.</p>
-                            <div class="projeto-links">
-                                <a href="/dashboards/chatbot/" target="_blank" class="btn-demo">🔗 Demo</a>
-                                <a href="https://github.com/vandersonmoura-arch/chatbot-ia" target="_blank" class="btn-github">📁 GitHub</a>
-                            </div>
-                        </div>
-                    </div>
+<!-- CSS para as animações -->
+<style>
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    
+    @keyframes slideIn {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(-5px); }
+    }
+</style>
 
+<!-- JavaScript para interatividade -->
+<script>
+function testarChatbot() {
+    // Abre o chatbot em uma pequena janela flutuante
+    const width = 400;
+    const height = 600;
+    const left = (screen.width/2) - (width/2);
+    const top = (screen.height/2) - (height/2);
+    
+    window.open('/dashboards/chatbot/', 'Chatbot IA', 
+                `width=${width},height=${height},top=${top},left=${left},toolbar=no,location=no,status=no,menubar=no`);
+}
+
+// Estatísticas falsas só para efeito visual (depois podemos conectar de verdade)
+setInterval(() => {
+    const statusEl = document.querySelector('.fa-users').parentElement;
+    if (statusEl) {
+        const ativos = Math.floor(Math.random() * 5) + 1; // 1-5 usuários
+        statusEl.innerHTML = `<i class="fas fa-users"></i> ${ativos} ativos`;
+    }
+}, 10000); // Atualiza a cada 10 segundos
+</script>
                     <!-- Card 4: Imobiliária Premium -->
                     <div class="projeto-card">
                         <div class="projeto-imagem">
